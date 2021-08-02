@@ -7,8 +7,10 @@ namespace ArchiveCLR {
 	public ref class ArchiveFunctionWrapper {
 		ArchiveFunction* archive;
 	public:
-		ArchiveFunctionWrapper() { archive = new ArchiveFunction(); }
-		~ArchiveFunctionWrapper() { delete archive; }
+		ArchiveFunctionWrapper() {
+			unique_ptr<ArchiveFactory> f1(new ArchiveFactory);
+			unique_ptr<IAbstractArchive> archive(f1->CreateProductA());
+		};
 
 		void extractArchive(HWND hWnd, wstring str, string& path, string& outname);
 		void addFileInArchive();
