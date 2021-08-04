@@ -1,27 +1,27 @@
 #include "pch.h"
+
 #include "ArchiveCLR.h"
 
-void ArchiveCLR::ArchiveFunctionWrapper::extractArchive(wstring str, string& path, string& outname) {
-	archive->extractArchive(str, path, outname);
+void ArchiveCLR::ArchiveWrapper::extractArchive() {
+	archive->extractArchive();
 }
 
-void ArchiveCLR::ArchiveFunctionWrapper::addFileInArchive() {
+void ArchiveCLR::ArchiveWrapper::addFileInArchive() {
 	archive->addFileInArchive();
 }
 
-void ArchiveCLR::ArchiveFunctionWrapper::writeArchiveSingle(wstring str, string path, vector<string> argv, string outname) {
-	archive->writeArchiveSingle(str, path, argv, outname);
+void ArchiveCLR::ArchiveWrapper::writeArchiveSingle() {
+	archive->writeArchiveSingle();
 }
 
-void ArchiveCLR::ArchiveFunctionWrapper::writeArchiveDirectory(wstring str, string path, vector<string> argv, string outname) {
-	archive->writeArchiveDirectory(str, path, argv, outname);
+void ArchiveCLR::ArchiveWrapper::writeArchiveDirectory() {
+	archive->writeArchiveDirectory();
 }
 
-void ArchiveCLR::ArchiveFunctionWrapper::selectFile(string& str) {
-	wstring ws(str.begin(), str.end());
-	archive->selectFile(ws);
+void ArchiveCLR::ArchiveWrapper::selectFile() {
+	archive->selectFile();
 }
 
-void ArchiveCLR::ArchiveFunctionWrapper::selectArchive(wstring& str) {
-	archive->selectArchive(str);
+void ArchiveCLR::ArchiveWrapper::selectArchive() {
+	archive->selectArchive();
 }

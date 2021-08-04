@@ -1,22 +1,27 @@
 #pragma once
 #include <ArchiveFunction.h>
+#include <msclr\marshal.h>
+#include <msclr\marshal_cppstd.h>
 
 using namespace System;
 
-namespace ArchiveCLR {
-	public ref class ArchiveFunctionWrapper {
+namespace ArchiveCLR
+{
+	public ref class ArchiveWrapper
+	{
+
 		IAbstractArchive* archive;
 	public:
-		ArchiveFunctionWrapper() {
+		ArchiveWrapper() {
 			unique_ptr<ArchiveFactory> f1(new ArchiveFactory);
 			this->archive = f1->CreateProductA();
 		};
 
-		void extractArchive(wstring str, string& path, string& outname);
+		void extractArchive();
 		void addFileInArchive();
-		void writeArchiveSingle(wstring str, string path, vector<string> argv, string outname);
-		void writeArchiveDirectory(wstring str, string path, vector<string> argv, string outname);
-		void selectFile(string& str);
-		void selectArchive(wstring& str);
+		void writeArchiveSingle();
+		void writeArchiveDirectory();
+		void selectFile();
+		void selectArchive();
 	};
 }
