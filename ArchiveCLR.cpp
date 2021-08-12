@@ -25,3 +25,32 @@ void ArchiveCLR::ArchiveWrapper::selectFile() {
 void ArchiveCLR::ArchiveWrapper::selectArchive() {
 	archive->selectArchive();
 }
+
+void ArchiveCLR::ArchiveWrapper::DoArchiveParam() {
+	archive->DoArchiveParam(*size_vec, *name_vec, *height_vec);
+	for (auto it = size_vec->begin(); it != size_vec->end(); ++it) size->Add(*it);
+	for (auto it = name_vec->begin(); it != name_vec->end(); ++it) {
+		System::String^ result;
+		result = marshal_as<System::String^>(*it);
+		name->Add(result);
+	}
+	for (auto it = height_vec->begin(); it != height_vec->end(); ++it) height->Add(*it);
+	num = size_vec->size();
+}
+
+void ArchiveCLR::ArchiveWrapper::DoFileParam() {
+	archive->DoFileParam(*size_vec, *name_vec, *height_vec);
+	for (auto it = size_vec->begin(); it != size_vec->end(); ++it) size->Add(*it);
+	for (auto it = name_vec->begin(); it != name_vec->end(); ++it) {
+		System::String^ result;
+		result = marshal_as<System::String^>(*it);
+		name->Add(result);
+	}
+	for (auto it = height_vec->begin(); it != height_vec->end(); ++it) height->Add(*it);
+	num = size_vec->size();
+}
+
+void ArchiveCLR::ArchiveWrapper::Draw(System::IntPtr hWnd) {
+	HWND nativeHWND = (HWND)hWnd.ToPointer();
+	archive->Draw(nativeHWND);
+}
