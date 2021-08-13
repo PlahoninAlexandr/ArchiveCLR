@@ -50,7 +50,6 @@ void ArchiveCLR::ArchiveWrapper::DoFileParam() {
 	num = size_vec->size();
 }
 
-void ArchiveCLR::ArchiveWrapper::Draw(System::IntPtr hWnd) {
-	HWND nativeHWND = (HWND)hWnd.ToPointer();
-	archive->Draw(nativeHWND);
+void ArchiveCLR::ArchiveWrapper::Draw() {
+	archive->Draw();
 }

@@ -44,6 +44,6 @@ namespace ArchiveCLR
 		void selectArchive();
 		void DoArchiveParam();
 		void DoFileParam();
-		void Draw(System::IntPtr hWnd);
+		void Draw();
 	};
 }
